@@ -1,3 +1,5 @@
+import jdk.jshell.Snippet;
+
 public class Vehicle {
 
     public Vehicle(int InitialAltitude) {
@@ -28,6 +30,8 @@ public class Vehicle {
     int Fuel = 12000;
     int Burn = 0;
     int Flying = FLYING;
+    int Status = 0;
+
 
     public Vehicle() {}
 
@@ -47,7 +51,7 @@ public class Vehicle {
                 Flying = SUCCESS;
             }
         } else {
-            if (this.Altitude > 0) {
+            if (this.Altitude < 0) {
                 s = emptyfuel;
                 Flying = EMPTYFUEL;
             } }
@@ -84,7 +88,8 @@ public class Vehicle {
     public DescentEvent getStatus(int tick) {
         // create a return a new DescentEvent object
         // filled in with the state of the vehicle.
-        return new DescentEvent(tick, Velocity, Fuel, Altitude, Flying);
+
+        return new DescentEvent(tick, Velocity, Fuel, Altitude, Status);
     }
 
 }
