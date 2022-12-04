@@ -8,10 +8,10 @@ public class OnBoardComputer implements BurnStream {
 //
 //        burn = (v * v) / (2 * a);
         if (status.Altitude > 1) {
-            burn = (status.Velocity * status.Velocity) / (2 / status.Altitude) + 100;
+            burn = (status.Velocity * status.Velocity) / (2 * status.Altitude) + 100;
 
         } else {
-            burn = 100;
+            burn += 100;
         }
 
         System.out.println(burn); /*hack!*/
